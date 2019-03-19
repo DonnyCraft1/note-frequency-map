@@ -1,0 +1,17 @@
+{
+  "name": "note-frequency-map",
+  "version": "0.0.1",
+  "description": "This tool can find the frequencies for any note.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "frequency",
+    "music",
+    "note",
+    "tone"
+  ],
+  "author": "Daniel",
+  "license": "ISC"
+}
