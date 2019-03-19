@@ -24,6 +24,8 @@ let myNote = FrequencyMap.note('A3');
 console.log(myNote.frequency); // > 220
 ```
 
+---
+
 Change the root:
 *The root note is A4=440 by default*
 ```js
@@ -31,6 +33,18 @@ const FrequencyMap = require('note-frequency-map');
 FrequencyMap.setRoot('A4', 442); // A4 is normally the refrence note, but any note works!
 let myNote = FrequencyMap.note('A3');
 console.log(myNote.frequency); // > 221
+```
+
+---
+
+*Compare two note objects*
+```js
+const FrequencyMap = require('note-frequency-map');
+let myFirstNote = FrequencyMap.note('Bb6');
+let mySecondNote = FrequencyMap.note('C#3');
+let comparasonObject = myFirstNote.compare(mySecondNote);
+console.log(comparasonObject.summary);
+// > 'The note A#6 is 2 octaves and 9 semitones away from C#3'
 ```
 
 # Functionality
@@ -48,3 +62,7 @@ console.log(myNote.frequency); // > 221
 * `.octave` - the octave of the note (e.g. 5)
 * `.frequency` - the calculated frequency for the note
 * `.tuning` - what root note it was tuned to, an object
+
+# Protip
+
+`Console.log()` the objects while experimenting. This way you will easely see how things is structured
