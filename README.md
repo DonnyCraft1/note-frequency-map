@@ -32,6 +32,15 @@ console.log(myNote.frequency); // > 220
 
 ---
 
+Find the note from a frequency
+```js
+const FrequencyMap = require('note-frequency-map');
+let myNote = FrequencyMap.noteFromFreq(880);
+console.log(myNote.note); // > 'A5'
+```
+
+---
+
 Change the root:
 *The root note is A4=440 by default*
 ```js
