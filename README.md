@@ -72,3 +72,9 @@ console.log(comparasonObject.summary);
 # Protip
 
 `Console.log()` the objects while experimenting. This way you will easely see how things is structured
+
+# Changelog
+
+*Changelog for version `0.0.x`*
+* Bug fixes... quite a few, thats how alpha works guys!
+* Frequency to note name lookup! Exiting stuff!
