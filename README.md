@@ -2,7 +2,7 @@
 
 *A npm package for music note frequency lookup*
 
-# Beta
+# Alpha
 
 *This package is currently in alpha, bugs and big structure changes may occur!*
 
