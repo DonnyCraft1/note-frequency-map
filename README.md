@@ -4,7 +4,7 @@
 
 # Beta
 
-*This package is currently in beta, bugs may occur*
+*This package is currently in alpha, bugs and big structure changes may occur!*
 
 __If you find a bug, or miss a feature, open an issue in the [GitHub page](https://github.com/DonnyCraft1/note-frequency-map)!__
 
