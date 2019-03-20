@@ -39,7 +39,7 @@ function getSemitonesFromRoot (name, octave, rootNote) {
 }
 
 function getStepSize () {
-    return Math.pow(2, 1/12);
+    return Math.pow(2, 1/scale.length);
 }
 
 function calculate (name, octave, rootNote) {
