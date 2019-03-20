@@ -21,7 +21,7 @@ In NodeJS:
 const FrequencyMap = require('note-frequency-map');
 ```
 
-# Example
+# Examples
 
 Find the frequency of a note:
 ```js
