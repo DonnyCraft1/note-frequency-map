@@ -7,9 +7,6 @@ class Note {
         this.name = name;
         this.octave = octave;
         this.note;
-        if (this.name !== null && this.octave !== null) {
-            this.note = this.name + this.octave;
-        }
         this.tuning = {
             name: rootNote.name,
             octave: rootNote.octave,
@@ -27,6 +24,7 @@ class Note {
                 this.centsOff = closest.cents;
                 this.name = closest.note.name;
                 this.octave = closest.note.octave;
+                this.note = this.name + this.octave;
             } else this.err = new Error(7, `The frequency "${freq}" is out of range`, freq);
         }
     }
