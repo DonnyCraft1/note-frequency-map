@@ -76,7 +76,6 @@ function parseString (string) {
     }
 
     return {name, octave};
-    //return new Note(name, octave);
 }
 
 module.exports.parseString = parseString;
