@@ -14,7 +14,7 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
         // closestNoteOctave = 4;
         
         // First find the octave
-        for (let i = 0; i < 10; i++) {
+        for (let i = -3; i < 40; i++) {
             let firstNote = calculate(scale[scale.length - 1], i - 1, rootNote);
             let lastNote = calculate(scale[scale.length - 1], i, rootNote);
 
