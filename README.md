@@ -76,7 +76,7 @@ console.log(comparasonObject.summary);
 * `.compare(otherNoteObject)` - see how two notes compare
 * `.name` - the name of the note (e.g. 'Bb')
 * `.octave` - the octave of the note (e.g. 5)
-* `.note` - the name + the octave (e.g. 'Bb5)
+* `.note` - the name + the octave (e.g. 'Bb5')
 * `.frequency` - the frequency of the note
 * `.tuning` - what root note it was tuned to, an object
 * `.centsOff` - how much out of tune the note is, usefull when finding note from frequency
