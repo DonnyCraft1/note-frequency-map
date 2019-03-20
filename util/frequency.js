@@ -4,7 +4,56 @@ function fromNote (note) { // Note object
     return calculate(note.name, note.octave, note.tuning);
 }
 
-function transpose (note, semitones) {
+// This function finds how much off the note is from either a defined one, or the closest one
+function getCentsOffFromNote (name, octave, freq, rootNote) {
+    let closestNoteName = name;
+    let closestNoteOctave = octave
+    // If no note is choosen, find the closest note
+    if (closestNoteName === null || closestNoteOctave === null) {
+
+        // First find the octave
+        for (let i = -3; i < 40; i++) {
+            let firstNote = calculate(scale[scale.length - 1], i - 1, rootNote);
+            let lastNote = calculate([0], i + 2, rootNote);
+
+            // Octave is not found, continue to next octave
+            if (!(freq > firstNote && freq <= lastNote)) continue;
+
+            // Octave was found, try to find the note.
+            closestNoteOctave = i;
+
+            // Find the closest note
+            for (let i = 0; i < scale.length; i++) {
+                let currentNoteFreq = calculate(scale[i], closestNoteOctave, rootNote);
+                let centsDiff = centsDifference(currentNoteFreq, freq);
+                if (centsDiff <= 50 && centsDiff > -50) {
+                    closestNoteName = scale[i];
+                    break;
+                }
+            }
+            if (closestNoteName === null) continue;
+        }
+        
+        // If the octave wasn't found
+        if (closestNoteOctave === null) return false;
+        // If the note wasn't found
+        if (closestNoteName === null) return false;
+
+    }
+    return {
+        note: {
+            name: closestNoteName,
+            octave: closestNoteOctave
+        },
+        cents: centsDifference(calculate(closestNoteName, closestNoteOctave, rootNote), freq)
+    }
+}
+
+function centsDifference (f1, f2) {
+	return 1200*(Math.log(f2/f1)/Math.log(2))
+}
+
+function transpose (note, octave, semitones) {
     let index = scale.indexOf(note.name) + semitones;
     let newOctave = note.octave;
 
@@ -12,8 +61,6 @@ function transpose (note, semitones) {
         index += scale.length;
         newOctave--;
     }
-
-    console.log(index > scale.length - 1);
 
     while (index > scale.length - 1) {
         index -= scale.length;
@@ -49,3 +96,4 @@ function calculate (name, octave, rootNote) {
 module.exports.fromNote = fromNote;
 module.exports.transpose = transpose;
 module.exports.getSemitonesFromNote = getSemitonesFromNote;
+module.exports.getCentsOffFromNote = getCentsOffFromNote;

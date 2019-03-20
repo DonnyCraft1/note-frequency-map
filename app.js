@@ -17,12 +17,17 @@ function setRoot (note, freq) {
     return true;
 }
 
-function note (note) {
+function noteFromName (note) {
     let parsed = parser.parseString(note);
-    return new Note(parsed.name, parsed.octave, rootNote);
+    return new Note(parsed.name, parsed.octave, null, rootNote);
+}
+
+function noteFromFreq (freq) {
+    return new Note(null, null, freq, rootNote);
 }
 
 module.exports = {
     setRoot: (string, freq) => setRoot(string, freq),
-    note: string => note(string)
+    noteFromName: string => noteFromName(string),
+    noteFromFreq: float => noteFromFreq(float)
 }
