@@ -5,7 +5,8 @@
 # Beta
 
 *This package is currently in beta, bugs may occur*
-*If you find a bug, or miss a feature, open an issue in the [GitHub page](https://github.com/DonnyCraft1/note-frequency-map)!
+
+__If you find a bug, or miss a feature, open an issue in the [GitHub page](https://github.com/DonnyCraft1/note-frequency-map)!__
 
 # Installation
 
