@@ -6,6 +6,10 @@ class Note {
     constructor (name, octave, freq, rootNote) {
         this.name = name;
         this.octave = octave;
+        this.note;
+        if (this.name !== null && this.octave !== null) {
+            this.note = this.name + this.octave;
+        }
         this.tuning = {
             name: rootNote.name,
             octave: rootNote.octave,
