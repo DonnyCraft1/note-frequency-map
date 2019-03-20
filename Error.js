@@ -26,6 +26,10 @@ let codes = [
     {
         code: 'ERR_NOTE_TOO_LOW',
         err: 'The note is too low'
+    },
+    {
+        code: 'ERR_FREQUENCY_OUT_OF_RANGE',
+        err: 'The frequency is either too low or too high'
     }
 ]
 
