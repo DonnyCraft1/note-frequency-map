@@ -1,6 +1,6 @@
 {
   "name": "note-frequency-map",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This tool can find the frequencies of any note.",
   "main": "app.js",
   "scripts": {

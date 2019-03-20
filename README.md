@@ -88,7 +88,7 @@ console.log(comparasonObject.summary);
 
 # Changelog
 
-*Changelog for version `0.0.x`*
+*Changelog for version `0.0.5`*
 * Bug fixes... quite a few, thats how alpha works guys!
 * Frequency to note name lookup! Exiting stuff!
 * `note-frequency-map.note(name)` is changed to `note-frequency-map.noteFromName(name)`
