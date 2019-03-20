@@ -15,25 +15,24 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
         
         // First find the octave
         for (let i = 0; i < 10; i++) {
-            let firstNote = calculate(scale[0], i, rootNote);
-            let lastNote = calculate(scale[scale.length -1], i, rootNote);
-            
+            let firstNote = calculate(scale[scale.length - 1], i - 1, rootNote);
+            let lastNote = calculate(scale[scale.length - 1], i, rootNote);
+
             // Octave is found!
-            if (freq >= firstNote && freq <= lastNote) {
+            if (freq >= firstNote && freq < lastNote) {
                 closestNoteOctave = i;
                 break;
             }
         }
         // If the octave wasn't found
-        if (closestNoteOctave === null) {
-            return false;
-        }
+        if (closestNoteOctave === null) return false;
 
         // Find the closest note
         let noteFound = false;
         for (let i = 0; i < scale.length; i++) {
             let currentNoteFreq = calculate(scale[i], closestNoteOctave, rootNote);
             let centsDiff = centsDifference(currentNoteFreq, freq);
+            //console.log(centsDiff);
             if (centsDiff <= 50) {
                 noteFound = true;
                 closestNoteName = scale[i];
