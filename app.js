@@ -19,7 +19,11 @@ function setRoot (note, freq) {
 
 function noteFromName (note) {
     let parsed = parser.parseString(note);
-    return new Note(parsed.name, parsed.octave, rootNote);
+    return new Note(parsed.name, parsed.octave, null, rootNote);
+}
+
+function noteFromFreq (freq) {
+    return new Note(null, null, freq, rootNote);
 }
 
 module.exports = {
