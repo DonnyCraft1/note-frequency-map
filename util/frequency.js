@@ -13,11 +13,11 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
 
         // First find the octave
         for (let i = -3; i < 40; i++) {
-            let firstNote = calculate(scale[scale.length - 1], i - 1, rootNote);
-            let lastNote = calculate([0], i + 2, rootNote);
+            let minFreq = calculate(scale[scale.length - 1], i - 1, rootNote);
+            let maxFreq = calculate(scale[1], i + 1, rootNote);
 
             // Octave is not found, continue to next octave
-            if (!(freq > firstNote && freq <= lastNote)) continue;
+            if (!(freq > minFreq && freq <= maxFreq)) continue;
 
             // Octave was found, try to find the note.
             closestNoteOctave = i;
