@@ -1,10 +1,8 @@
 const scale = require('./scale');
 const symbols = require('./symbols');
 const Error = require('../Error');
-const Note = require('../Note');
 
 function parseString (string) {
-    let notes = scale.join('').toLowerCase();
     let input = string.split('');
     let inputNoPitching = null;
     let name = null;
