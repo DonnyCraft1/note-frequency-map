@@ -57,11 +57,11 @@ function parseString (string) {
         else index = scale.indexOf(name) - 1;
 
         if (index < 0) {
-            index = scale.length;
+            index = scale.length - 1;
             octave--;
         }
 
-        if (index > scale.length) {
+        if (index > scale.length - 1) {
             index = 0;
             octave++;
         }
