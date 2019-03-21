@@ -88,7 +88,9 @@ console.log(comparasonObject.summary);
 
 # Changelog
 
-*Changelog for version `0.0.5`*
-* Bug fixes... quite a few, thats how alpha works guys!
-* Frequency to note name lookup! Exiting stuff!
-* `note-frequency-map.note(name)` is changed to `note-frequency-map.noteFromName(name)`
+*Changelog for version `0.0.6`*
+* Bug fixes
+* Optimized the note finder (from frequency) alogrithm
+* Fixed typos and formatting in README.md
+
+*Check the [GitHub page](https://github.com/DonnyCraft1/note-frequency-map) for more details*
