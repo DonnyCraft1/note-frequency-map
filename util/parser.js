@@ -55,7 +55,7 @@ function parseString (string) {
     // If it's pitched, change the name of the note
     if (pitched !== null) {
         let index = null;
-        if (pitched === '#') index = scale.indexOf(name) + 1;
+        if (pitched === symbols.sharp) index = scale.indexOf(name) + 1;
         else index = scale.indexOf(name) - 1;
 
         if (index < 0) {
