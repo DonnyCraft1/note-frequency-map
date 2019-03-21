@@ -24,7 +24,7 @@ function parseString (string) {
     // If string includes flat or sharp
     if (input.length === 3) {
         // If sharp or flat symbol is invalid
-        if (input[1] !== symbols.sharp && input[1] !== symbols.flat) {
+        if (!(symbols.sharp.includes(input[1]) || symbols.flat.includes(input[1]))) {
             return new Error(2, `The character "${input[2]}" is invalid`, string)
         }
         // Pitch modifier is valid
@@ -55,7 +55,7 @@ function parseString (string) {
     // If it's pitched, change the name of the note
     if (pitched !== null) {
         let index = null;
-        if (pitched === symbols.sharp) index = scale.indexOf(name) + 1;
+        if (symbols.sharp.includes(pitched)) index = scale.indexOf(name) + 1;
         else index = scale.indexOf(name) - 1;
 
         if (index < 0) {
