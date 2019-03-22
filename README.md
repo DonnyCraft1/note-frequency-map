@@ -32,7 +32,7 @@ console.log(myNote.frequency); // > 220
 
 ---
 
-Find the note from a frequency
+Find the note from a frequency:
 ```js
 const FrequencyMap = require('note-frequency-map');
 let myNote = FrequencyMap.noteFromFreq(880);
@@ -52,7 +52,7 @@ console.log(myNote.frequency); // > 221
 
 ---
 
-Compare two note objects
+Compare two note objects:
 ```js
 const FrequencyMap = require('note-frequency-map');
 let myFirstNote = FrequencyMap.noteFromName('Bb6');
