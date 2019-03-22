@@ -13,11 +13,11 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
 
         // First find the octave
         for (let i = -3; i < 40; i++) {
-            let minFreq = calculate(scale[scale.length - 1], i - 1, rootNote);
-            let maxFreq = calculate(scale[1], i + 1, rootNote);
+            let minFreq = calculate(scale[0], i, rootNote) / getHalfStepSize();
+            let maxFreq = calculate(scale[scale.length - 1], i, rootNote) * getHalfStepSize();
 
             // Octave is not found, continue to next octave
-            if (!(freq > minFreq && freq <= maxFreq)) continue;
+            if (!(freq >= minFreq && freq <= maxFreq)) continue;
 
             // Octave was found, try to find the note.
             closestNoteOctave = i;
@@ -85,12 +85,20 @@ function getSemitonesFromRoot (name, octave, rootNote) {
     return getSemitonesFromNote(name, octave, rootNote.name, rootNote.octave);
 }
 
-function getStepSize () {
-    return Math.pow(2, 1/scale.length);
+function getFullStepSize () {
+    return getStepSize(scale.length);
+}
+
+function getHalfStepSize () {
+    return getStepSize(scale.length * 2);
+}
+
+function getStepSize (count) {
+    return Math.pow(2, 1/count);
 }
 
 function calculate (name, octave, rootNote) {
-    return rootNote.frequency * Math.pow(getStepSize(), getSemitonesFromRoot(name, octave, rootNote));
+    return rootNote.frequency * Math.pow(getFullStepSize(), getSemitonesFromRoot(name, octave, rootNote));
 }
 
 module.exports.fromNote = fromNote;
