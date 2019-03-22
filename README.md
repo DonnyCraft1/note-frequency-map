@@ -86,6 +86,17 @@ console.log(comparasonObject.summary);
 
 `console.log()` the data while experimenting. This way you will easely see how things is structured
 
+# How it works
+The package has two core algorithms.
+1. One for calculating the frequency of a note
+2. And one for finding the note from a frequency
+
+The first one is the easiest, it's just a [mathematical formula](https://pages.mtu.edu/~suits/NoteFreqCalcs.html).
+
+The second one is a bit more complicated. First it first searches to find the octave by checking if the frequency is in the range of the lowest and highest frequency in the octave. Once the octave is found, it searces trough the notes in the scale util it finds the note who is less than or equal to 50 cents apart from the frequency.
+
+See [the source code](https://github.com/DonnyCraft1/note-frequency-map/blob/master/util/frequency.js) for more details.
+
 # Changelog
 
 *Changelog for version `0.0.7`*
