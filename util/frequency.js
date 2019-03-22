@@ -17,7 +17,7 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
             let maxFreq = calculate(scale[scale.length - 1], i, rootNote) * getHalfStepSize();
 
             // Octave is not found, continue to next octave
-            if (!(freq > minFreq && freq <= maxFreq)) continue;
+            if (!(freq >= minFreq && freq <= maxFreq)) continue;
 
             // Octave was found, try to find the note.
             closestNoteOctave = i;
