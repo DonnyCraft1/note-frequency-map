@@ -88,9 +88,11 @@ console.log(comparasonObject.summary);
 
 # Changelog
 
-*Changelog for version `0.0.6`*
-* Bug fixes
+*Changelog for version `0.0.7`*
 * Optimized the note finder (from frequency) alogrithm
-* Fixed typos and formatting in README.md
+* `note-frequency-map.noteFromName(name)` now support both `b` and `♭` as flat symbols
+* Fixed `console.log()` typo in README.md
+* Bug fixes
+* Code cleanup
 
 *Check the [GitHub page](https://github.com/DonnyCraft1/note-frequency-map) for more details*
