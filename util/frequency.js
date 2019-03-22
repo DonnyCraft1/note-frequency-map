@@ -85,17 +85,20 @@ function getSemitonesFromRoot (name, octave, rootNote) {
     return getSemitonesFromNote(name, octave, rootNote.name, rootNote.octave);
 }
 
-function getStepSize () {
-    return Math.pow(2, 1/scale.length);
+function getFullStepSize () {
+    return getStepSize(scale.length);
 }
 
 function getHalfStepSize () {
-    // Half a half-step
-    return Math.pow(2, 1/(scale.length * 2));
+    return getStepSize(scale.length * 2);
+}
+
+function getStepSize (count) {
+    return Math.pow(2, 1/count);
 }
 
 function calculate (name, octave, rootNote) {
-    return rootNote.frequency * Math.pow(getStepSize(), getSemitonesFromRoot(name, octave, rootNote));
+    return rootNote.frequency * Math.pow(getFullStepSize(), getSemitonesFromRoot(name, octave, rootNote));
 }
 
 module.exports.fromNote = fromNote;
