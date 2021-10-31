@@ -3,14 +3,14 @@ const Comparison = require('./Comparison');
 const Error = require('./Error');
 
 class Note {
-    constructor (name, octave, freq, rootNote) {
+    constructor (name, octave, freq, baseNote) {
         this.name = name;
         this.octave = octave;
         this.note;
         this.tuning = {
-            name: rootNote.name,
-            octave: rootNote.octave,
-            frequency: rootNote.frequency
+            name: baseNote.name,
+            octave: baseNote.octave,
+            frequency: baseNote.frequency
         };
 
         if (freq === null) {
@@ -20,7 +20,7 @@ class Note {
             this.frequency = freq;
             let checkedName = name || null;
             let checkedOctave = octave || null;
-            let closest = frequency.getCentsOffFromNote(checkedName, checkedOctave, freq, rootNote);
+            let closest = frequency.getCentsOffFromNote(checkedName, checkedOctave, freq, baseNote);
             if (closest !== false) {
                 this.centsOff = closest.cents;
                 this.name = closest.note.name;
