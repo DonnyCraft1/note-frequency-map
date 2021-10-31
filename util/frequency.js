@@ -5,7 +5,7 @@ function fromNote (note) { // Note object
 }
 
 // This function finds how much off the note is from either a defined one, or the closest one
-function getCentsOffFromNote (name, octave, freq, rootNote) {
+function getCentsOffFromNote (name, octave, freq, baseNote) {
     let closestNoteName = name;
     let closestNoteOctave = octave
     // If no note is choosen, find the closest note
@@ -13,8 +13,8 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
 
         // First find the octave
         for (let i = -3; i < 40; i++) {
-            let minFreq = calculate(scale[0], i, rootNote) / getHalfStepSize();
-            let maxFreq = calculate(scale[scale.length - 1], i, rootNote) * getHalfStepSize();
+            let minFreq = calculate(scale[0], i, baseNote) / getHalfStepSize();
+            let maxFreq = calculate(scale[scale.length - 1], i, baseNote) * getHalfStepSize();
 
             // Octave is not found, continue to next octave
             if (!(freq >= minFreq && freq <= maxFreq)) continue;
@@ -24,7 +24,7 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
 
             // Find the closest note
             for (let i = 0; i < scale.length; i++) {
-                let currentNoteFreq = calculate(scale[i], closestNoteOctave, rootNote);
+                let currentNoteFreq = calculate(scale[i], closestNoteOctave, baseNote);
                 let centsDiff = centsDifference(currentNoteFreq, freq);
                 if (centsDiff <= 50 && centsDiff > -50) {
                     closestNoteName = scale[i];
@@ -45,7 +45,7 @@ function getCentsOffFromNote (name, octave, freq, rootNote) {
             name: closestNoteName,
             octave: closestNoteOctave
         },
-        cents: centsDifference(calculate(closestNoteName, closestNoteOctave, rootNote), freq)
+        cents: centsDifference(calculate(closestNoteName, closestNoteOctave, baseNote), freq)
     }
 }
 
@@ -81,8 +81,8 @@ function getSemitonesFromNote (name1, octave1, name2, octave2) {
     return semitones + (octaves * scale.length);
 }
 
-function getSemitonesFromRoot (name, octave, rootNote) {
-    return getSemitonesFromNote(name, octave, rootNote.name, rootNote.octave);
+function getSemitonesFromBase (name, octave, baseNote) {
+    return getSemitonesFromNote(name, octave, baseNote.name, baseNote.octave);
 }
 
 function getFullStepSize () {
@@ -97,8 +97,8 @@ function getStepSize (count) {
     return Math.pow(2, 1/count);
 }
 
-function calculate (name, octave, rootNote) {
-    return rootNote.frequency * Math.pow(getFullStepSize(), getSemitonesFromRoot(name, octave, rootNote));
+function calculate (name, octave, baseNote) {
+    return baseNote.frequency * Math.pow(getFullStepSize(), getSemitonesFromBase(name, octave, baseNote));
 }
 
 module.exports.fromNote = fromNote;
