@@ -84,7 +84,7 @@ console.log(comparasonObject.summary);
 
 # Protip
 
-`console.log()` the data while experimenting. This way you will easely see how things is structured
+`console.log()` the data while experimenting. This way you will easily see how things is structured
 
 # Changelog
 
